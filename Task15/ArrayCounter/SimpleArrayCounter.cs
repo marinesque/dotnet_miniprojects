@@ -4,7 +4,7 @@ namespace RandomArrayGenerator
 {
     public class SimpleArrayCounter
     {
-        public (long Sum, TimeSpan Speed) CalculateSum(int[] numbers)
+        public (long Sum, long Speed) CalculateSum(int[] numbers)
         {
             var stopwatch = Stopwatch.StartNew();
 
@@ -16,7 +16,7 @@ namespace RandomArrayGenerator
 
             stopwatch.Stop();
 
-            return (sum, stopwatch.Elapsed);
+            return (sum, stopwatch.ElapsedMilliseconds);
         }
     }
 }

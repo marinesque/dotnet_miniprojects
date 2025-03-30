@@ -4,7 +4,7 @@ namespace RandomArrayGenerator
 {
     public class ParallelForArrayCounter
     {
-        public (long Sum, TimeSpan Speed) CalculateSum(int[] numbers)
+        public (long Sum, long Speed) CalculateSum(int[] numbers)
         {
             var stopwatch = Stopwatch.StartNew();
             long totalSum = 0;
@@ -22,7 +22,7 @@ namespace RandomArrayGenerator
                 });
 
             stopwatch.Stop();
-            return (totalSum, stopwatch.Elapsed);
+            return (totalSum, stopwatch.ElapsedMilliseconds);
         }
     }
 }
