@@ -4,11 +4,12 @@ namespace RandomArrayGenerator
 {
     public class ThreadArrayCounter
     {
-        public (long Sum, TimeSpan Speed) CalculateSum(int[] numbers)
+        public (long Sum, long Speed) CalculateSum(int[] numbers)
         {
             var stopwatch = Stopwatch.StartNew();
 
             int threadCount = Environment.ProcessorCount;
+            Console.WriteLine($"threadCount = {threadCount}");
             int batch = numbers.Length / threadCount;
             int totalSum = 0;
             object lockObj = new object();
@@ -44,7 +45,7 @@ namespace RandomArrayGenerator
             }
 
             stopwatch.Stop();
-            return (totalSum, stopwatch.Elapsed);
+            return (totalSum, stopwatch.ElapsedMilliseconds);
         }
     }
 }
