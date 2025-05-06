@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ugadaika.Domain.Contracts
+﻿namespace Ugadaika.Domain.Interfaces
 {
-    internal interface IValidator
+    public interface INumberValidator
     {
+        public bool Validate(int curNumber, int minNumber, int maxNumber);
     }
 }

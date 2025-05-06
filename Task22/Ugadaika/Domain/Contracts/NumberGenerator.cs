@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Ugadaika.Domain.Interfaces;
 
 namespace Ugadaika.Domain.Contracts
 {
-    internal class NumberGenerator
+    public class NumberGenerator : INumberGenerator
     {
+        public int Generate(int minNumber, int maxNumber)
+        {
+            var curNumber = Random.Shared.Next(minNumber, maxNumber + 1);
+            return curNumber;
+        }
     }
 }

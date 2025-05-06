@@ -2,25 +2,40 @@
 
 namespace Ugadaika.Domain.Contracts
 {
-    public class UgadaikaGame : INumberGenerator, INumberValidator
+    public class UgadaikaGame : IGamePlay
     {
         public INumberGenerator _generator;
-        private NumberPair _numberPair;
 
-        public UgadaikaGame(INumberGenerator generator, NumberPair numberPair)
+        private int _minNumber;
+        private int _maxNumber;
+
+        public UgadaikaGame(INumberGenerator generator, int minNumber, int maxNumber)
         {
             _generator = generator;
-            _numberPair = numberPair;
+            _minNumber = minNumber;
+            _maxNumber = maxNumber;
         }
 
-        public int Generate(int minNumber, int maxNumber)
+        public void Play()
         {
-            throw new NotImplementedException();
-        }
+            int curNumber = _generator.Generate(_minNumber, _maxNumber);
 
-        public bool Validate(int curNumber, int minNumber, int maxNumber)
-        {
-            throw new NotImplementedException();
+            Console.WriteLine($"Я загадал число от {_minNumber} до {_maxNumber}. Угадай его:");
+
+            var isNumber = int.TryParse(Console.ReadLine(), out int attempt);
+
+            if (!isNumber)
+                throw new Exception("Введи-ка ты число)");
+
+            if (attempt == curNumber)
+            {
+                Console.WriteLine($"Угадал!");
+                return;
+            }
+            else
+            {
+                Console.WriteLine($"Не угадал! Это было число {curNumber}");
+            }
         }
     }
 }

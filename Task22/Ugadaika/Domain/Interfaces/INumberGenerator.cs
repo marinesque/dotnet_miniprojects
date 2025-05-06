@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ugadaika.Domain.Contracts
+﻿namespace Ugadaika.Domain.Interfaces
 {
-    internal interface IGenerator
+    public interface INumberGenerator
     {
+        public int Generate(int minNumber, int maxNumber);
     }
 }

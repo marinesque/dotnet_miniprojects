@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Ugadaika.Domain.Interfaces
+﻿namespace Ugadaika.Domain.Interfaces
 {
-    internal interface IGamePlay
+    public interface IGamePlay
     {
+        public void Play();
     }
 }
